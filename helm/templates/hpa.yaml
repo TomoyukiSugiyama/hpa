@@ -9,9 +9,9 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: sample-app
-  # autoscale between 1 and 10 replicas
+  # autoscale between 1 and 3 replicas
   minReplicas: 1
-  maxReplicas: 10
+  maxReplicas: 3
   metrics:
   # use a "Pods" metric, which takes the average of the
   # given metric across all pods controlled by the autoscaling target
