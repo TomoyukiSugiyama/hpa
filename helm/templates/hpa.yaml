@@ -1,17 +1,17 @@
 kind: HorizontalPodAutoscaler
 apiVersion: autoscaling/v2
 metadata:
-  name: sample-app
+  name: test-sugiyama
 spec:
   scaleTargetRef:
     # point the HPA at the sample application
     # you created above
     apiVersion: apps/v1
     kind: Deployment
-    name: sample-app
+    name: test-sugiyama
   # autoscale between 1 and 3 replicas
-  minReplicas: 1
-  maxReplicas: 3
+  minReplicas: 2
+  maxReplicas: 10
   metrics:
   # use a "Pods" metric, which takes the average of the
   # given metric across all pods controlled by the autoscaling target
@@ -19,9 +19,9 @@ spec:
     pods:
       # use the metric that you used above: pods/http_requests
       metric:
-        name: http_requests
+        name: memory_usage_bytes
       # target 500 milli-requests per second,
       # which is 1 request every two seconds
       target:
         type: Value
-        averageValue: 500m
+        averageValue: 10485760 # 10M
