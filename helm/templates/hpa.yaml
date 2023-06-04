@@ -14,9 +14,8 @@ spec:
   metrics:
   - type: Pods
     pods:
-      # use the metric that you used above: pods/memory_usage_bytes
       metric:
-        name: memory_usage_bytes
+        name: my_custom_metric
       target:
         type: Value
-        averageValue: 10485760 # 10M
+        value: "1"
