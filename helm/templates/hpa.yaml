@@ -9,19 +9,14 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: test-sugiyama
-  # autoscale between 1 and 3 replicas
   minReplicas: 2
   maxReplicas: 10
   metrics:
-  # use a "Pods" metric, which takes the average of the
-  # given metric across all pods controlled by the autoscaling target
   - type: Pods
     pods:
-      # use the metric that you used above: pods/http_requests
+      # use the metric that you used above: pods/memory_usage_bytes
       metric:
         name: memory_usage_bytes
-      # target 500 milli-requests per second,
-      # which is 1 request every two seconds
       target:
         type: Value
         averageValue: 10485760 # 10M
