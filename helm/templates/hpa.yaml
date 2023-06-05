@@ -15,7 +15,7 @@ spec:
   - type: External
     external:
       metric:
-        name: my_external_metric
+        name: my_external_metrics
       target:
         type: Value
         value: "2"
